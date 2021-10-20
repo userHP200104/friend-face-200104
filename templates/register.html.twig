@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div>
+
+        {% if error %}
+            <div>Oops!</div>
+        {% endif %}
+        {{title}}
+        {{ form_start(form, {'attr': {'no-validate': 'no-validate'}}) }} {# opening the form#}
+
+           {{form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Username', 'style': 'margin: 10px'} }) }}
+           {{form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email', 'style': 'margin: 10px'} }) }}
+           {{form_widget(form.password, { 'attr': {'class': 'form-control', 'placeholder': 'Password', 'style': 'margin: 10px'} }) }}
+
+           {{form_widget(form.submit, { 'attr': {'class': 'btn'} }) }}
+
+        {{ form_end(form) }} {# closing the form #}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Profile Page{% endblock %}
+
+{% block body %}
+    <div class="row">
+        This is the profile of {{ user.username }} ({{ user.email }}) and they have {{ user.friends|length }} friends:
+    </div>
+    <div class="row">
+        <ul>
+            {% for friend in user.friends %} {#for loop looks in twig #}
+                <li>{{ friend.username }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h6>My Moods</h6>
+    </div>
+    <div class="row">
+        {% for mood in user.moods %} {#for loop looks in twig #} {#moods from our Mood Entity#}
+            <div class="col-12" style="background-color:#f9f9f8; padding: 20px; margin-top: 20px;">
+                <h5>{{ mood.emoji }} - {{ mood.feeling }}</h5>
+                <p> {{ mood.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
